@@ -1,0 +1,31 @@
+# 依赖
+node_modules/
+**/node_modules/
+
+# 环境变量（含密码和密钥）
+.env
+**/.env
+.env.*
+
+# 构建产物
+client/dist/
+
+# 上传文件目录
+server/uploads/
+
+# Vite 缓存
+client/node_modules/.vite/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 日志
+*.log
+npm-debug.log*

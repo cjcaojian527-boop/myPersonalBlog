@@ -1,0 +1,173 @@
+.ArticlePreviewComp {
+    height: 100%;
+    overflow: auto;
+    text-align: left;
+    padding: 0 12px;
+
+    .btn-wrapper {
+        position: absolute;
+        bottom: 12%;
+
+        right: 4%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border: 1px solid var(--color-border);
+        box-shadow: var(--elevation-low-shadow);
+        border-radius: 44px;
+        opacity: 1;
+        color: var(--color-secondary-label);
+        z-index: 10;
+        background: var(--elevation-low-background);
+
+        span {
+            font-size: 20px;
+
+        }
+    }
+
+
+
+    .ant-image .ant-image-cover:hover {
+        opacity: 0;
+    }
+
+    h2 {
+        border-bottom: solid 1px var(--color-border);
+        padding: 10px 0;
+        height: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--color-secondary-label);
+        text-decoration: none;
+        font-size: 22px;
+        transition: .5s;
+
+    }
+
+    h2:hover {
+        color: var(--color-blue);
+    }
+
+    .ant-space {
+        height: 23px;
+        margin: 10px 0;
+    }
+
+    .list>div {
+        margin-bottom: 10px;
+    }
+
+
+
+    @keyframes articleIn {
+        from {
+            opacity: 0;
+            scale: 0;
+
+        }
+
+        to {
+            opacity: 1;
+            scale: 1;
+            transform: none;
+
+        }
+    }
+
+    .list {
+        // height: 530px;
+        animation: articleIn 0.55s ease-out;
+        overflow: auto;
+
+
+        // scrollbar-width: none;
+        // /* Firefox 隐藏 */
+        // -ms-overflow-style: none;
+        // /* 老版 IE / Edge 隐藏 */
+
+        // &::-webkit-scrollbar {
+        //     width: 0;
+        //     height: 0;
+        //     /* Chrome / Edge / Safari 隐藏 */
+        // }
+
+
+        h3,
+        h2 {
+            all: revert;
+
+        }
+
+        div {
+
+            h3,
+            h2 {
+                all: revert;
+            }
+
+            .ant-image {
+                width: 100%;
+            }
+
+            img {
+                max-width: 100%;
+                /* 可根据页面布局调整 */
+                aspect-ratio: 16 / 9;
+                object-fit: contain;
+                /* 保持原图比例，不裁剪 */
+                background-color: var(--color-information-background);
+                /* 可选：填充空白区域 */
+            }
+
+
+
+
+
+
+        }
+
+        .PreviewImage {
+            background-color: var(--color-information-background);
+            text-align: center;
+        }
+
+        .iframe-div {
+            all: revert;
+            margin: 0 0 10px 0;
+            max-width: 100%;
+            // 可根据页面布局调整最大宽度
+            aspect-ratio: 16 / 9;
+            // 锁定 16:9 比例
+            // 填充空白区域
+            overflow: hidden // 防止 iframe 内容溢出
+        }
+
+        .code-div {
+            all: revert;
+            margin: 0 0 10px 0;
+            max-width: 100%;
+            // 可根据页面布局调整最大宽度
+            aspect-ratio: 16 / 9;
+            // 锁定 16:9 比例
+            // 填充空白区域
+            overflow: auto // 防止 iframe 内容溢出
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        video {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

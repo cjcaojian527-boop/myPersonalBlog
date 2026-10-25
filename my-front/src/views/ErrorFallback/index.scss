@@ -1,0 +1,58 @@
+// 错误页面容器
+.error-fallback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+// 错误内容卡片
+.error-fallback-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+// 淡入上移动画
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// 错误详情区域
+.error-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+// 错误提示文字
+.error-tip {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+// 响应式
+@media (max-width: 480px) {
+    .error-fallback-content {
+        padding: 24px;
+        border-radius: 12px;
+    }
+}

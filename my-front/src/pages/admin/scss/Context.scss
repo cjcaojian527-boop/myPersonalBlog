@@ -1,0 +1,72 @@
+.Context-contenier {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .Context-form {
+        height: 15%;
+
+    }
+
+    .Context-table {
+        background-color: #fff;
+        padding: 10px;
+
+        border-radius: 10px;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.0588235294);
+        flex: 0.98;
+        display: flex;
+
+        h3 {
+            font-size: 16px;
+            height: 30px;
+            // font-family: fangsong;
+
+
+            color: #fff;
+            font-weight: 400;
+            background-color: #74a6f9;
+        }
+
+        .ListComp {
+            min-width: 300px;
+
+            h3 {
+                border-top-left-radius: 10px;
+
+                .anticon-plus {
+                    cursor: pointer;
+                }
+
+                .anticon-plus:hover {
+                    color: rgba(255, 23, 23, 0.757);
+                }
+            }
+        }
+
+        .Form-contenier {
+            width: 25%;
+
+            h3 {
+                border-top-right-radius: 10px;
+            }
+        }
+
+        .Form-contenier-view {
+            // flex: 1;
+            width: calc(75% - 360px);
+
+            h3 {
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+
+            .Form-contenier-box {
+                height: calc(100% - 30px);
+            }
+        }
+
+
+    }
+}

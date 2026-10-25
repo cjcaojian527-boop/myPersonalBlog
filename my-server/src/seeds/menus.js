@@ -1,0 +1,147 @@
+
+module.exports = [
+    {
+        "id": 1,
+        "pid": -1,
+        "label": "系统页面",
+        "icon": "CodeSandboxCircleFilled",
+        "path": "#",
+        "absolutePath": "#",
+        "componentPath": "#",
+        "level": 1,
+        "display": true,
+
+    },
+    {
+        "id": 2,
+        "pid": 1,
+        "label": "后台父页面",
+        "icon": "HomeOutlined",
+        "path": "/admin",
+        "absolutePath": "#",
+        "componentPath": "/admin/Home",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 3,
+        "pid": 2,
+        "label": "后台首页",
+        "icon": "BankOutlined",
+        "path": "index",
+        "absolutePath": "/admin/index",
+        "componentPath": "/admin/WelCome",
+        "level": 3,
+        "display": true,
+
+    },
+    {
+        "id": 4,
+        "pid": 1,
+        "label": "登录页",
+        "icon": "UserOutlined",
+        "path": "/Login",
+        "absolutePath": "/login",
+        "componentPath": "/admin/Login",
+        "level": 2,
+        "display": false,
+
+    },
+    {
+        "id": 6,
+        "pid": 2,
+        "label": "菜单管理",
+        "icon": "ProductOutlined",
+        "path": "menusEdit",
+        "absolutePath": "/admin/menusEdit",
+        "componentPath": "/admin/MenusCrud",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 7,
+        "pid": 2,
+        "label": "用户管理",
+        "icon": "UserOutlined",
+        "path": "users",
+        "absolutePath": "/admin/Users",
+        "componentPath": "/admin/Users",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 9,
+        "pid": 2,
+        "label": "文章分类",
+        "icon": "PartitionOutlined",
+        "path": "ArticleType",
+        "absolutePath": "/admin/ArticleType",
+        "componentPath": "/admin/ArticleType",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 10,
+        "pid": 2,
+        "label": "文章管理",
+        "icon": "BookOutlined",
+        "path": "artcle",
+        "absolutePath": "/admin/artcle",
+        "componentPath": "/admin/ArticleList",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 11,
+        "pid": 2,
+        "label": "文章标签",
+        "icon": "SnippetsOutlined",
+        "path": "ArticleLabels",
+        "absolutePath": "/admin/ArticleLabels",
+        "componentPath": "/admin/ArticleLabels",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 12,
+        "pid": 2,
+        "label": "文章内容",
+        "icon": "PaperClipOutlined",
+        "path": "Context",
+        "absolutePath": "/admin/Context",
+        "componentPath": "/admin/Context",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 13,
+        "pid": 2,
+        "label": "游客管理",
+        "icon": "UserOutlined",
+        "path": "touristsUser",
+        "absolutePath": "/admin/touristsUser",
+        "componentPath": "/admin/touristsUser",
+        "level": 2,
+        "display": true,
+
+    },
+    {
+        "id": 15,
+        "pid": 2,
+        "label": "评论管理",
+        "icon": "MessageOutlined",
+        "path": "comment",
+        "absolutePath": "/admin/comment",
+        "componentPath": "/admin/comment",
+        "level": 2,
+        "display": true,
+
+    }
+]

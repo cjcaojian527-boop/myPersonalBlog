@@ -1,0 +1,13 @@
+nginx容器创建：
+docker run -d --name blog-front --network mynet -p 8080:80 --restart=unless-stopped -v D:/myApp-project/PersonalBlog/my-front/dist:/usr/share/nginx/html/blog blog-nginx:latest
+
+
+# 2. 让 Nginx 重新加载（不需要重启容器！）
+docker exec blog-front nginx -s reload
+
+
+查看日志node
+docker logs -f node-dev
+
+Node 开发容器创建
+docker run -d --name node-dev -p 3002:3002 --network mynet --env-file D:/myApp-project/PersonalBlog/my-server/.env.docker -v D:/myApp-project/PersonalBlog/my-server/src:/src/src my-blog-server

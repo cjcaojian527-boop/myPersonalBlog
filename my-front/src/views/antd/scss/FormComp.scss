@@ -1,0 +1,45 @@
+.Form_div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px #0000000f;
+
+
+    .ant-form {
+        position: relative;
+
+        .ant-form-item {
+            margin: 10px 15px 10px 0;
+        }
+
+        .ant-btn {
+            margin-right: 10px;
+
+        }
+
+
+    }
+
+    .customContenier {
+        .ant-image {
+            // position: absolute;
+            // right: 0;
+            // top: -20%;
+        }
+    }
+
+    .btns {
+        text-align: right;
+        position: relative;
+
+        .ant-btn {
+            margin-right: 10px;
+        }
+
+
+    }
+}

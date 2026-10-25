@@ -1,0 +1,14 @@
+.MenusCrud-contenier {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .MenusCrud-form {
+        height: 30%;
+    }
+
+    .MenusCrud-table {
+        flex: 1;
+
+    }
+}

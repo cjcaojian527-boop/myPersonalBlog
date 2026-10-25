@@ -1,0 +1,221 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root,
+.force-light {
+  --color-description: rgba(0, 0, 0, 0.36);
+  --color-primary-label: #333;
+  --color-secondary-label: rgba(51, 51, 51, 0.8);
+  --color-tertiary-label: rgba(51, 51, 51, 0.6);
+  --color-quaternary-label: rgba(51, 51, 51, 0.3);
+  --color-link: #13386c;
+  --color-inverted-label: #fff;
+  --color-background: #fff;
+  --color-active-background: rgba(0, 0, 0, 0.03);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-shadow-border: rgba(0, 0, 0, 0.02);
+  --elevation-low-background: #fff;
+  --elevation-high-background: #fff;
+  --elevation-note-background: #fff;
+  --elevation-low-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --elevation-high-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08), 0 1px 4px 0 rgba(0, 0, 0, 0.04);
+  --elevation-note-shadow: 0 8px 64px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.02);
+  --elevation-low-shadow-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.02));
+  --elevation-high-shadow-filter: drop-shadow(0 4px 32px rgba(0, 0, 0, 0.08)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.04));
+  --material-filter: saturate(150%) blur(10px);
+  --material-background: rgba(64, 64, 64, 0.25);
+  --material-inverted-background: rgba(51, 51, 51, 0.9);
+  --mask-backdrop: rgba(0, 0, 0, 0.25);
+  --mask-note-card: rgba(0, 0, 0, 0.25);
+  --mask-paper: rgba(255, 255, 255, 0.98);
+  --color-white: #fff;
+  --color-red: #ff2442;
+  --color-tinted-red: rgba(255, 36, 66, 0.06);
+  --color-blue: #3d8af5;
+  --color-tinted-blue: rgba(61, 138, 245, 0.1);
+  --mask-video-player-mask: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 24.48%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.75) 100%);
+  --search-hotspot-hint: linear-gradient(90deg, #ff2543 0%, #ff5225 100%);
+  --color-vertical-channel: #fff9d5;
+  --color-title: rgba(0, 0, 0, 0.8);
+  --color-gradient-background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  --color-gradient-background-reverse: linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff 30px);
+  --color-information-background: #fafafa;
+  --color-fill5: rgba(48, 48, 52, 0.99);
+  --color-bg-linear-gradient: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  --color-table-border: rgba(48, 48, 52, 0.05);
+  --ai-chat-input-box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.05);
+  --color-vertical-linear-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+
+  // 半透明纸张（顶部栏等）
+  --mask-paper-translucent: rgba(255, 255, 255, 0.3);
+  // 滚动条滑块
+  --scrollbar-thumb: rgba(100, 100, 100, 0.3);
+  --scrollbar-thumb-hover: rgba(100, 100, 100, 0.6);
+
+  // 悬浮按钮（回到顶部 / 刷新评论）—— 深底白字
+  --float-btn-bg: rgba(0, 0, 0, 0.45);
+  --float-btn-bg-hover: rgba(0, 0, 0, 0.65);
+  --float-btn-color: #fff;
+}
+
+// ============================================================
+// 前台暗色主题
+// ------------------------------------------------------------
+// 作用域挂在 <html data-theme="dark"> 上，由【前台根组件】挂载时设置、
+// 卸载时移除。因此：
+//   · 只进前台   → 属性被设置，前台变暗
+//   · 只进后台   → 属性从未设置，后台保持原来的亮色
+//   · 前台→后台  → 前台卸载时移除属性，后台自动恢复亮色
+// 挂在 <html> 而非前台容器上，是为了让 antd 的 portal 元素
+// （Modal / Drawer / message，它们挂在 body 下）也能取到变量。
+// ============================================================
+html[data-theme='dark'] {
+  // ---- 文字层级（暗色下用白色透明度分层，而非灰阶）----
+  --color-primary-label: rgba(255, 255, 255, 0.92);
+  --color-secondary-label: rgba(255, 255, 255, 0.72);
+  --color-tertiary-label: rgba(255, 255, 255, 0.55);
+  --color-quaternary-label: rgba(255, 255, 255, 0.28);
+  --color-description: rgba(255, 255, 255, 0.36);
+  --color-title: rgba(255, 255, 255, 0.92);
+  --color-inverted-label: #16161a;
+
+  // ---- 背景 ----
+  --color-background: #16161a;
+  --color-information-background: #1f1f24;
+  --color-active-background: rgba(255, 255, 255, 0.07);
+
+  // ---- 边框（暗色下靠亮色描边，而非阴影）----
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-shadow-border: rgba(255, 255, 255, 0.04);
+  --color-table-border: rgba(255, 255, 255, 0.06);
+
+  // ---- 浮层层级（逐级提亮，模拟高度）----
+  --elevation-low-background: #1d1d22;
+  --elevation-high-background: #232329;
+  --elevation-note-background: #26262c;
+
+  // ---- 阴影（暗色下必须加深，否则层次完全看不出）----
+  --elevation-low-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.45), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  --elevation-high-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.55), 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+  --elevation-note-shadow: 0 8px 64px 0 rgba(0, 0, 0, 0.55), 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+  --elevation-low-shadow-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+  --elevation-high-shadow-filter: drop-shadow(0 4px 32px rgba(0, 0, 0, 0.55));
+
+  // ---- 毛玻璃 / 蒙层 ----
+  --material-background: rgba(30, 30, 36, 0.60);
+  --material-inverted-background: rgba(255, 255, 255, 0.90);
+  --mask-backdrop: rgba(0, 0, 0, 0.60);
+  --mask-note-card: rgba(0, 0, 0, 0.60);
+  --mask-paper: rgba(22, 22, 26, 0.92);
+  --mask-paper-translucent: rgba(22, 22, 26, 0.55);
+
+  // ---- 品牌色（暗色下提亮，保证在深底上的对比度）----
+  --color-red: #ff4d6a;
+  --color-tinted-red: rgba(255, 77, 106, 0.14);
+  --color-blue: #5b9dff;
+  --color-tinted-blue: rgba(91, 157, 255, 0.18);
+  --color-link: #7db3ff;
+  --color-white: #fff;
+
+  // ---- 渐变（渐隐的终点必须换成暗底色，否则会露出白边）----
+  --color-gradient-background: linear-gradient(180deg, #16161a 0%, rgba(22, 22, 26, 0) 100%);
+  --color-gradient-background-reverse: linear-gradient(180deg, rgba(22, 22, 26, 0) 0, #16161a 30px);
+  --color-bg-linear-gradient: linear-gradient(180deg, #16161a 0%, rgba(22, 22, 26, 0) 100%);
+  --color-vertical-linear-gradient: linear-gradient(to bottom, rgba(22, 22, 26, 0), #16161a);
+
+  --color-vertical-channel: #3a3320;
+
+  // ---- 滚动条 ----
+  --scrollbar-thumb: rgba(255, 255, 255, 0.22);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.40);
+
+  // ---- 悬浮按钮（暗色下反过来：亮底深字）----
+  --float-btn-bg: rgba(255, 255, 255, 0.22);
+  --float-btn-bg-hover: rgba(255, 255, 255, 0.34);
+  --float-btn-color: #16161a;
+
+  color-scheme: dark;
+}
+
+html,
+body {
+  // 注意：这里不要再写死 --color-primary-label，否则 body 上的定义会覆盖
+  // html[data-theme='dark'] 的变量，导致暗色主题失效（变量就近取值）
+  font-size: 14px;
+  color: var(--color-primary-label);
+  width: 100vw !important;
+  max-width: 100%;
+  font-family: system-ui, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, PingFang TC, PingFang HK, Microsoft Yahei, Microsoft JhengHei;
+  margin: 0;
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ant-app {
+  height: 100%;
+}
+
+img {
+
+  -webkit-user-drag: none;
+  /* 兼容 Chrome、Safari 等 WebKit 内核浏览器 */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  user-select: none;
+}
+
+//处理tabs的样式
+
+.ant-tabs-nav {
+  margin: 0 !important;
+}
+
+.ant-tabs-content-holder {
+  display: none !important;
+}
+
+/* 全局通用：针对 Chrome, Edge, Safari 等 WebKit 内核浏览器 */
+::-webkit-scrollbar {
+  width: 8px;
+  /* 垂直滚动条宽度 */
+  height: 8px;
+  /* 水平滚动条高度 */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* 轨道完全透明，保持界面干净 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  /* 默认半透明浅灰色 */
+  border-radius: 4px;
+  /* 圆角设计 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+  /* 鼠标悬停时颜色加深 */
+}
+
+/* 全局通用：针对 Firefox 浏览器 */
+html {
+  scrollbar-width: thin;
+  /* 细滚动条 */
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+  /* 滑块颜色 + 轨道透明 */
+}

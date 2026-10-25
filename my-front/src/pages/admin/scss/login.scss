@@ -1,0 +1,544 @@
+// 登录页容器
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #4A90D9 0%, #87CEEB 50%, #E0F6FF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+// 天空背景
+.login-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+// 云朵基础样式 - 3D饱满效果
+.login-cloud {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(0.5px);
+
+    // 多层阴影打造3D感
+    box-shadow:
+        inset -10px -10px 30px rgba(200, 220, 255, 0.6),
+        inset 10px 10px 30px rgba(255, 255, 255, 0.9),
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 -5px 15px rgba(255, 255, 255, 0.5);
+}
+
+// 云朵1 - 大云朵（最饱满）
+.login-cloud-1 {
+    width: 220px;
+    height: 80px;
+    top: 12%;
+    left: 8%;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 50%, #e6f3ff 100%);
+    animation: float-cloud-1 25s ease-in-out infinite;
+
+    // 主体
+    border-radius: 100px;
+
+    // 左侧凸起
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(145deg, #ffffff 0%, #f5faff 50%, #eaf5ff 100%);
+        border-radius: 50%;
+        top: -50px;
+        left: 25px;
+        box-shadow:
+            inset -8px -8px 25px rgba(200, 220, 255, 0.5),
+            inset 8px 8px 25px rgba(255, 255, 255, 0.9),
+            0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    // 右侧凸起
+    &::after {
+        content: '';
+        position: absolute;
+        width: 130px;
+        height: 110px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fcff 50%, #edf7ff 100%);
+        border-radius: 50%;
+        top: -60px;
+        right: 15px;
+        box-shadow:
+            inset -10px -10px 30px rgba(200, 220, 255, 0.5),
+            inset 10px 10px 30px rgba(255, 255, 255, 0.95),
+            0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// 云朵2 - 中云朵
+.login-cloud-2 {
+    width: 180px;
+    height: 65px;
+    top: 22%;
+    right: 12%;
+    background: linear-gradient(145deg, #ffffff 0%, #f5faff 50%, #eaf5ff 100%);
+    animation: float-cloud-2 18s ease-in-out infinite reverse;
+    border-radius: 80px;
+
+    box-shadow:
+        inset -8px -8px 25px rgba(200, 220, 255, 0.5),
+        inset 8px 8px 25px rgba(255, 255, 255, 0.9),
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 85px;
+        height: 85px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fcff 50%, #edf7ff 100%);
+        border-radius: 50%;
+        top: -42px;
+        left: 20px;
+        box-shadow:
+            inset -6px -6px 20px rgba(200, 220, 255, 0.4),
+            inset 6px 6px 20px rgba(255, 255, 255, 0.9),
+            0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        background: linear-gradient(145deg, #ffffff 0%, #faffff 50%, #f0faff 100%);
+        border-radius: 50%;
+        top: -45px;
+        right: 12px;
+        box-shadow:
+            inset -8px -8px 22px rgba(200, 220, 255, 0.4),
+            inset 8px 8px 22px rgba(255, 255, 255, 0.95),
+            0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+}
+
+// 云朵3 - 小云朵
+.login-cloud-3 {
+    width: 140px;
+    height: 50px;
+    bottom: 25%;
+    left: 18%;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 50%, #e6f3ff 100%);
+    animation: float-cloud-3 20s ease-in-out infinite;
+    animation-delay: -5s;
+    border-radius: 60px;
+
+    box-shadow:
+        inset -6px -6px 20px rgba(200, 220, 255, 0.4),
+        inset 6px 6px 20px rgba(255, 255, 255, 0.85),
+        0 6px 20px rgba(0, 0, 0, 0.06);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(145deg, #ffffff 0%, #f5faff 50%, #eaf5ff 100%);
+        border-radius: 50%;
+        top: -32px;
+        left: 15px;
+        box-shadow:
+            inset -5px -5px 15px rgba(200, 220, 255, 0.35),
+            inset 5px 5px 15px rgba(255, 255, 255, 0.9),
+            0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 75px;
+        height: 70px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fcff 50%, #edf7ff 100%);
+        border-radius: 50%;
+        top: -35px;
+        right: 10px;
+        box-shadow:
+            inset -6px -6px 18px rgba(200, 220, 255, 0.35),
+            inset 6px 6px 18px rgba(255, 255, 255, 0.95),
+            0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+}
+
+// 云朵4 - 远处小云朵
+.login-cloud-4 {
+    width: 100px;
+    height: 35px;
+    top: 35%;
+    left: 55%;
+    background: linear-gradient(135deg, #ffffff 0%, #f5faff 50%, #eaf5ff 100%);
+    animation: float-cloud-4 15s ease-in-out infinite;
+    animation-delay: -3s;
+    border-radius: 50px;
+    opacity: 0.7;
+
+    box-shadow:
+        inset -4px -4px 12px rgba(200, 220, 255, 0.3),
+        inset 4px 4px 12px rgba(255, 255, 255, 0.85),
+        0 4px 12px rgba(0, 0, 0, 0.04);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(145deg, #ffffff 0%, #f8fcff 50%, #edf7ff 100%);
+        border-radius: 50%;
+        top: -22px;
+        left: 10px;
+        box-shadow:
+            inset -3px -3px 10px rgba(200, 220, 255, 0.25),
+            inset 3px 3px 10px rgba(255, 255, 255, 0.9),
+            0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 55px;
+        height: 50px;
+        background: linear-gradient(135deg, #ffffff 0%, #faffff 50%, #f0faff 100%);
+        border-radius: 50%;
+        top: -25px;
+        right: 8px;
+        box-shadow:
+            inset -4px -4px 12px rgba(200, 220, 255, 0.25),
+            inset 4px 4px 12px rgba(255, 255, 255, 0.95),
+            0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+}
+
+// 云朵5 - 右上角云朵
+.login-cloud-5 {
+    width: 200px;
+    height: 70px;
+    top: 8%;
+    right: 25%;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fcff 50%, #edf7ff 100%);
+    animation: float-cloud-5 28s ease-in-out infinite reverse;
+    animation-delay: -8s;
+    border-radius: 90px;
+
+    box-shadow:
+        inset -9px -9px 28px rgba(200, 220, 255, 0.5),
+        inset 9px 9px 28px rgba(255, 255, 255, 0.9),
+        0 9px 28px rgba(0, 0, 0, 0.09);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 95px;
+        height: 95px;
+        background: linear-gradient(135deg, #ffffff 0%, #f5faff 50%, #eaf5ff 100%);
+        border-radius: 50%;
+        top: -48px;
+        left: 28px;
+        box-shadow:
+            inset -7px -7px 22px rgba(200, 220, 255, 0.45),
+            inset 7px 7px 22px rgba(255, 255, 255, 0.95),
+            0 7px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 115px;
+        height: 100px;
+        background: linear-gradient(145deg, #ffffff 0%, #faffff 50%, #f0faff 100%);
+        border-radius: 50%;
+        top: -55px;
+        right: 18px;
+        box-shadow:
+            inset -9px -9px 28px rgba(200, 220, 255, 0.45),
+            inset 9px 9px 28px rgba(255, 255, 255, 0.95),
+            0 9px 25px rgba(0, 0, 0, 0.09);
+    }
+}
+
+// 5种不同的浮动动画
+@keyframes float-cloud-1 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(20px) translateY(-12px);
+    }
+
+    50% {
+        transform: translateX(5px) translateY(-20px);
+    }
+
+    75% {
+        transform: translateX(-15px) translateY(-10px);
+    }
+}
+
+@keyframes float-cloud-2 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    33% {
+        transform: translateX(-18px) translateY(-15px);
+    }
+
+    66% {
+        transform: translateX(12px) translateY(-8px);
+    }
+}
+
+@keyframes float-cloud-3 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(15px) translateY(-10px);
+    }
+
+    50% {
+        transform: translateX(-10px) translateY(-18px);
+    }
+
+    75% {
+        transform: translateX(-20px) translateY(-5px);
+    }
+}
+
+@keyframes float-cloud-4 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(25px) translateY(-12px);
+    }
+}
+
+@keyframes float-cloud-5 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    33% {
+        transform: translateX(-22px) translateY(-10px);
+    }
+
+    66% {
+        transform: translateX(10px) translateY(-18px);
+    }
+}
+
+// ========== 纸张样式 ==========
+.login-toilet-paper {
+    position: relative;
+    margin-top: 10%;
+    z-index: 50;
+    animation: tp-float-in 2s ease-out forwards, tp-continuous-float 4s ease-in-out 2s infinite;
+    opacity: 0;
+    // 整体轻微倾斜
+    transform: rotate(-1deg);
+    cursor: pointer;
+
+    // 鼠标悬停停止动画
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+// 飘入动画
+@keyframes tp-float-in {
+    0% {
+        opacity: 0;
+        transform: translateY(80vh) rotate(-8deg) skewX(-2deg);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(-1deg) skewX(0deg);
+    }
+}
+
+// 持续飘动动画
+@keyframes tp-continuous-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg) skewX(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(0deg) skewX(0.5deg);
+    }
+
+    50% {
+        transform: translateY(-4px) rotate(-2deg) skewX(-0.3deg);
+    }
+
+    75% {
+        transform: translateY(-12px) rotate(0.5deg) skewX(0.3deg);
+    }
+}
+
+// 纸张
+.tp-paper {
+    width: 320px;
+    min-height: 280px;
+    background: linear-gradient(145deg,
+            #FFFFFF 0%,
+            #FEFEFE 25%,
+            #F9F9F9 50%,
+            #FEFEFE 75%,
+            #FAFAFA 100%);
+    position: relative;
+    margin: 0 auto;
+
+    // 不规则边缘 - 撕裂感
+    clip-path: polygon(2% 0%,
+            5% 1%,
+            12% 0%,
+            20% 1.5%,
+            30% 0%,
+            40% 1%,
+            50% 0%,
+            60% 1.5%,
+            70% 0%,
+            80% 1%,
+            88% 0%,
+            95% 1%,
+            100% 0%,
+            100% 95%,
+            98% 100%,
+            90% 98%,
+            80% 100%,
+            70% 97%,
+            60% 100%,
+            50% 98%,
+            40% 100%,
+            30% 97%,
+            20% 100%,
+            10% 98%,
+            5% 100%,
+            0% 97%,
+            1% 90%,
+            0% 80%,
+            1% 70%,
+            0% 60%,
+            1% 50%,
+            0% 40%,
+            1% 30%,
+            0% 20%,
+            1% 10%);
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.04),
+        3px 5px 20px rgba(0, 0, 0, 0.12),
+        -2px 3px 10px rgba(0, 0, 0, 0.06);
+
+    // 纸张褶皱纹理
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+            // 斜向褶皱纹
+            linear-gradient(135deg, transparent 40%, rgba(0, 0, 0, 0.015) 41%, transparent 42%),
+            linear-gradient(225deg, transparent 45%, rgba(0, 0, 0, 0.01) 46%, transparent 47%),
+            linear-gradient(315deg, transparent 35%, rgba(0, 0, 0, 0.012) 36%, transparent 37%),
+            // 压花纹
+            radial-gradient(circle at 15% 25%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+            radial-gradient(circle at 55% 65%, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+            radial-gradient(circle at 85% 15%, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        background-size:
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            25px 25px,
+            25px 25px,
+            25px 25px;
+        pointer-events: none;
+    }
+
+    // 左侧微卷效果
+    &::after {
+        content: '';
+        position: absolute;
+        top: 5%;
+        left: -2px;
+        width: 8px;
+        height: 90%;
+        background: linear-gradient(90deg,
+                rgba(200, 200, 200, 0.15) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+}
+
+// 纸张内容
+.tp-paper-content {
+    padding: 15px 35px 60px;
+    min-height: 220px;
+    text-align: center;
+    color: #999;
+    position: relative;
+    z-index: 5;
+}
+
+// 锯齿边缘 - 也做成不规则
+.tp-paper-edge {
+    position: absolute;
+    bottom: -18px;
+    left: 5%;
+    width: 90%;
+    height: 20px;
+    overflow: hidden;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+// 响应式
+@media (max-width: 480px) {
+    .tp-paper {
+        width: 280px;
+        min-height: 250px;
+    }
+}

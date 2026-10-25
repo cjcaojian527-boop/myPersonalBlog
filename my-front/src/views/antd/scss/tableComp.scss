@@ -1,0 +1,52 @@
+.table-contenier {
+    height: 100%;
+    // max-width: 1200px;
+    overflow: auto;
+
+    .ant-btn-sm {
+        font-size: 12px;
+    }
+
+    .TITLE_TABLE {
+        padding: 16px 0 4px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 42px;
+
+        .title_lable {
+            font-weight: bold;
+            font-family: none;
+        }
+    }
+
+    .custom-table {
+        height: calc(100% - 42px);
+        width: 100%;
+        .ant-table {
+            .ant-table-container {
+
+                .ant-table-body,
+                .ant-table-content {
+                    scrollbar-width: thin;
+                    scrollbar-color: #eaeaea transparent;
+                }
+
+                .ant-btn-sm {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        // 高亮行样式
+        .highlight-row {
+            background-color: #e6f7ff !important;
+        }
+
+        // 鼠标悬停行样式
+        .ant-table-row:hover {
+            background-color: #f0f0f0 !important;
+        }
+    }
+}
+

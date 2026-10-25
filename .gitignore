@@ -1,31 +1,59 @@
-# 依赖
+# ==================== 依赖 ====================
 node_modules/
 **/node_modules/
 
-# 环境变量（含密码和密钥）
+# ==================== 环境变量（含密码和密钥） ====================
 .env
 **/.env
 .env.*
+**/.env.*
+# 模板文件必须提交，方便别人 clone 后复制
+!.env.example
+!**/.env.example
+# 前端构建配置不含密钥，跟着仓库走
+!my-front/.env.development
+!my-front/.env.production
 
-# 构建产物
-client/dist/
+# ==================== 构建产物 ====================
+dist/
+**/dist/
+build/
+**/build/
+web-build/
+.expo/
+**/.expo/
+.expo-shared/
 
-# 上传文件目录
-server/uploads/
+# ==================== 大文件 / 部署产物（绝不入库） ====================
+*.tar
+*.apk
+*.ipa
+downloads/
+DeployFolder/
+.upgrade-backup/
 
-# Vite 缓存
-client/node_modules/.vite/
+# ==================== 证书与密钥 ====================
+certbot/
+*.pem
+*.key
+*.p12
+*.jks
+*.mobileprovision
 
-# 系统文件
+# ==================== 系统文件 ====================
 .DS_Store
 Thumbs.db
 
-# IDE
+# ==================== IDE / 本地工具 ====================
 .idea/
 .vscode/
+.claude/
+**/.claude/
 *.swp
 *.swo
+*.local
 
-# 日志
+# ==================== 日志与备份 ====================
 *.log
 npm-debug.log*
+*.bak

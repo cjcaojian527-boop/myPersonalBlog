@@ -1,0 +1,45 @@
+{
+  "cli": {
+    "version": ">= 25.3.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_CONTEXT_PATH": "https://dalanben.live/ServiceRequest",
+        "EXPO_PUBLIC_FILE_BASEURI": "https://dalanben.live/Preview"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "cache": {
+        "disabled": false
+      },
+      "env": {
+        "EXPO_PUBLIC_CONTEXT_PATH": "https://dalanben.live/ServiceRequest",
+        "EXPO_PUBLIC_FILE_BASEURI": "https://dalanben.live/Preview"
+      },
+      "android": {
+        "buildType": "apk",
+        "image": "latest",
+        "node": "22.16.0"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_CONTEXT_PATH": "https://dalanben.live/ServiceRequest",
+        "EXPO_PUBLIC_FILE_BASEURI": "https://dalanben.live/Preview"
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

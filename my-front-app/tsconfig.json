@@ -1,0 +1,22 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    // 覆盖 expo/tsconfig.base 里已弃用的 "node"（node10）；bundler 贴合 Metro 打包语义
+    "moduleResolution": "bundler",
+    // 显式声明全局类型包：不写的话 TS 6 不再自动加载 @types/jest，
+    // 测试文件里的 it / expect 会报「找不到名称」
+    "types": ["jest"],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}

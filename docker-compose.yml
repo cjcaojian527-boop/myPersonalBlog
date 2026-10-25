@@ -1,0 +1,101 @@
+services:
+  # 1. 前端 Nginx 服务
+  front:
+    build: ./my-front
+    container_name: blog-front
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./my-front/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/certs:/etc/nginx/certs:ro  
+    restart: unless-stopped
+    networks:
+      - mynet
+    depends_on:
+      back:
+        condition: service_started
+      minio:
+        condition: service_started
+    mem_limit: 256m
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 2. 后端服务
+  back:
+    build: ./my-server  
+    container_name: blog-node
+    restart: unless-stopped
+    env_file: ./my-server/.env.docker
+    networks:
+      - mynet
+    depends_on:
+      db:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    mem_limit: 512m
+    cpus: 1.0
+
+  # 3. 数据库服务
+  db:
+    image: mysql:8.0
+    container_name: blog-mysql8
+    env_file:
+      - ./my-server/.env.docker
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - mynet
+    healthcheck:
+      # 这里直接写死你的真实密码，确保健康检查能通过
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p1314520cj"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    command:
+      - --innodb-buffer-pool-size=256M
+      - --performance-schema=OFF
+      - --max-connections=100
+    mem_limit: 1024m
+    cpus: 1.0
+
+  # 4. MinIO 对象存储服务
+  minio:
+    image: pgsty/silo:latest 
+    user: "0:0" 
+    container_name: blog-minio
+    env_file:
+      - ./my-server/.env.docker 
+    ports:
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+    networks:
+      - mynet
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  mynet:
+    driver: bridge
+
+volumes:
+  db_data:
+  minio_data:

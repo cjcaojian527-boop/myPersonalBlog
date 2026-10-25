@@ -7,11 +7,11 @@
 
 ## 项目截图
 
-| 首页 | 文章详情 |
+| 首页 · 文章瀑布流 | 文章详情 |
 | --- | --- |
-| ![首页](doc/screenshots/blog-home.png) | ![文章详情](doc/screenshots/blog-detail.png) |
+| ![首页](doc/screenshots/blog-home.jpg) | ![文章详情](doc/screenshots/blog-detail.jpg) |
 
-![前台](doc/screenshots/blog-frontend.png)
+![关于页面](doc/screenshots/blog-about.jpg)
 
 ## 功能特性
 

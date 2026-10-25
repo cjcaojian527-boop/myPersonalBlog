@@ -51,8 +51,8 @@ services:
     networks:
       - mynet
     healthcheck:
-      # 这里直接写死你的真实密码，确保健康检查能通过
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p1314520cj"]
+      # 不传密码：mysqladmin ping 只检测服务是否可连接，不需要认证
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 5s
       retries: 10

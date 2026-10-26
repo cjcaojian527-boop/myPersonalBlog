@@ -433,8 +433,10 @@ export default function ArticlePreview() {
 
             await fetchComments(true);
             scrollToComments();
-        } catch (error) {
+        } catch (error: any) {
             console.warn('发送评论失败：', error);
+            // 401 已经由 axios 拦截器统一提示并清掉登录态，这里别再弹「网络异常」误导人
+            if (error?.isAuthExpired) return;
             toast('评论失败', {
                 description: '网络异常，请稍后再试',
                 duration: 1500,
